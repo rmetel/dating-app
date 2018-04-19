@@ -109,9 +109,8 @@
             <!-- SLIDE 4 -->
             <li data-transition="fade" data-slotamount="7" data-delay="8000" data-title="Slide 4">
                 <!-- Background Image -->
-               <img src="images/demo/bg17.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" alt="">
+               <img src="images/babe.jpg" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" alt="">
                <div class="bg-overlay op5"></div>
-
 
                 <div class="tp-caption sfr stb"
                     data-x="right" data-hoffset="-15"
