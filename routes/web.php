@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/register-success', function () {
+    return view('register-success');
+});
+
+Route::post('/login', 'UserController@createUser');

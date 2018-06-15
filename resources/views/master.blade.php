@@ -20,6 +20,9 @@
 
         <!-- Main CSS file -->
         <link rel="stylesheet" href="css/style.css">
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="css/custom.css">
     </head>
     <body>
         <div id="preloader">

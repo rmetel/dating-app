@@ -248,7 +248,7 @@
                                 </li> <!-- END Shop -->
                                 <li><a href="shortcodes.html">Shortcodes</a></li>
                                 <!-- Always include last class to link to solve some padding issues -->
-                                <li><a class="last" href="http://abusinesstheme.com/documentation/palas/index.html" target="_blank">Documentation</a></li>
+                                <li><a class="last" href="/login">Login</a></li>
                             </ul>
                         </nav>
                     </div>
