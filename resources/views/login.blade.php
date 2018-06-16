@@ -1,14 +1,14 @@
 @extends('master')
 
 @section('content')
-
     <section class="page-sign-in mb10">
         <div class="container">
             <div class="row">
                 <div class="col-sm-10 col-md-6 col-md-push-6">
                     <div class="sign-in-area">
                         <h3 class="title-small br-bottom">Create an account</h3>
-                        <p>Do you already have an account? &nbsp; <a href="page_sign_in.html" class="xs-block">Sign In</a></p>
+                        <p class="info">Do you already have an account? &nbsp; <a href="page_sign_in.html" class="xs-block">Sign In</a></p>
+                        <h3 class="error hidden" style="color: #c75c5c">Diese Email ist bereits registriert!</h3>
                         <form class="form" action="/login" method="post">
                             @csrf
                             <label><input name="user_name" required="" class="form-control" placeholder=" Full Name *" type="text"></label>
@@ -72,4 +72,34 @@
             </div>
         </div>
     </section>
+@stop
+
+@section('scripts')
+    <script>
+        $('[type=submit]').on('click', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                'url': '/api/users/by/email',
+                'type': 'post',
+                'data': {
+                    'email': $('[name="user_email"]').val(),
+                    '_token': $('[name="_token"]').val()
+                },
+                success: function(data){
+                    var response = JSON.parse(data);
+                    if(response.userExists) {
+                        $('.info').addClass('hidden');
+                        $('.error').removeClass('hidden');
+                        $('[name=user_email]').css('border', '2px solid #c75c5c');
+                    } else {
+                        $(e.target).closest('form').submit();
+                    }
+                },
+                error: function(error){
+                    console.log(error.statusText);
+                }
+            });
+        });
+    </script>
 @stop

@@ -51,6 +51,7 @@
             <script src="plugins/isotope/imagesloaded.pkgd.min.js"></script>
 
             <script src="js/script.js"></script>
+            @yield('scripts')
         </div>
     </body>
 </html>

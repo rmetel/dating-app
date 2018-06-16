@@ -24,3 +24,6 @@ Route::get('/register-success', function () {
 });
 
 Route::post('/login', 'UserController@createUser');
+
+// API
+Route::post('/api/users/by/email', 'UserController@getUserByEmail');

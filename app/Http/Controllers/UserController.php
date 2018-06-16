@@ -37,14 +37,32 @@ class UserController extends Controller
         }
     }
 
-    public function getUser(Request $request)
+    public function getUserByEmail(Request $request)
     {
-        $existingUser = DB::table('users')->where('email', $request->user_email)->first();
+        try {
+            //todo: replace by User::find()
+            $existingUser = DB::table('users')->where('email', $request->email)->first();
+            if($existingUser){
+                $existingUser->password = "xxx";
+                echo json_encode([
+                    'email'         => $request->email,
+                    'userExists'    => true,
+                    'user'          => $existingUser,
+                ]);
+            }else{
+                echo json_encode([
+                    'email'         => $request->email,
+                    'userExists'    => false
+                ]);
+            }
 
-        if($existingUser){
-            echo json_encode($existingUser);
-        }else{
-            return null;
+        } catch (Exception $e) {
+            echo json_encode([
+                'email'         => $request->email,
+                'userExists'    => false
+            ]);
         }
+//        header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+//        exit();
     }
 }
